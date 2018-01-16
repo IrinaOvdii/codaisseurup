@@ -1,22 +1,24 @@
 class EventsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update]
+  before_action :set_event, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:show]
 
   def index
     @events = current_user.events
   end
 
-  def show; end
+  def show
+  @categories = @event.categories
+ end
 
   def new
-    @room = current_user.events.build
+    @event = current_user.events.build
   end
 
   def create
-    @room = current_user.events.build(room_params)
+    @event = current_user.events.build(event_params)
 
-    if @room.save
-      redirect_to @room, notice: "Room created"
+    if @event.save
+      redirect_to @event, notice: "Event created"
     else
       render :new
     end
@@ -26,7 +28,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to @event, notice: "Room updated"
+      redirect_to @event, notice: "Event updated"
     else
       render :edit
     end
@@ -35,14 +37,14 @@ class EventsController < ApplicationController
   private
 
   def set_event
-    @event = Room.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def event_params
     params
       .require(:event)
       .permit(
-        :name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active )
-      )
+        :name, :description, :location, :price, :capacity, :includes_food,
+        :includes_drinks, :starts_at, :ends_at, :active, category_ids: [])
   end
 end

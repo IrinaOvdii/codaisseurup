@@ -2,5 +2,5 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   devise_for :users
-  resources :rooms, except: [:destroy]
+  resources :events, except: [:destroy]
 end
