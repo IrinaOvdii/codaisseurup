@@ -24,6 +24,12 @@
       <li>Is this event active: <%= !@event.active ? ("<s>No</s>").html_safe : "Yes" %></li>
     </ul>
 
+    <h4>Categories</h4>
+<% @categories.each do |category| %>
+  <span class="label label-success"><%= category.name %></span>
+<% end %>
+
+
   </div>
 
 </div>
