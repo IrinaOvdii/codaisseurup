@@ -9,30 +9,23 @@
     <!-- Main Info -->
     <h4>Description of event:</h4>
     <p>More details: <%= @event.description %></p>
+    <p>Location: <%= @event.location %></p>
     <p>Price: <%= @event.price %> $ </p>
     <p>Capacity: <%= @event.capacity %></p>
-    <p>Includes Foods: <%= @event.capacity %></p>
+    <p>Starts at: <%= @event.starts_at %></p>
+    <p>Ends at: <%= @event.ends_at %></p>
 
-
-
-
-    <p><%= @event.includes_food %> <%= @event.includes_food ? "Yes" : "No" %></p>
-    <p><%= @event.includes_drinks %> <%= @event.includes_drinks ? "Yes" : "No" %></p>
-
-_______________DALWE NE YSPELA______________
 
     <!-- Amenities -->
-    <h4>Amenities</h4>
+    <h4>Extra info:</h4>
     <ul class="amenities">
-      <li><%= !@event.has_tv ? ("<s>TV</s>").html_safe : "TV" %></li>
-      <li><%= !@event.has_kitchen ? ("<del>Kitchen</del>").html_safe : "Kitchen" %></li>
-      <li><%= !@event.has_internet ? ("<del>Internet</del>").html_safe : "Internet" %></li>
-      <li><%= !@event.has_heating ? ("<del>Heating</del>").html_safe : "Heating" %></li>
-      <li><%= !@event.has_airco ? ("<del>Air Conditioning</del>").html_safe : "Air Conditioning" %></li>
+      <li> Includes food: <%= !@event.includes_food ? ("<s>No</s>").html_safe : "Yes" %></li>
+      <li>Includes drinks: <%= !@event.includes_drinks ? ("<s>No</s>").html_safe : "Yes" %></li>
+      <li>Is this event active: <%= !@event.active ? ("<s>No</s>").html_safe : "Yes" %></li>
     </ul>
 
   </div>
 
 </div>
 
-<%= link_to "Back", rooms_path, class: "btn btn-default" %>
+<%= link_to "Back", events_path, class: "btn btn-default" %>
