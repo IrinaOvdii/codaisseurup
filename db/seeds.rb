@@ -8,14 +8,14 @@
 Category.destroy_all
 User.destroy_all
 
-modern_and_minimal = Category.create(name: "Modern and Minimal")
-sleek_and_sophisticated = Category.create(name: "Sleek and Sophisticated")
-warm_and_cozy = Category.create(name: "Warm and Cozy")
-room_with_a_view = Category.create(name: "Room with a View")
-elegant_and_ornate = Category.create(name: "Elegant and Ornate")
-a_mans_touch = Category.create(name: "A Man's Touch")
-white_washed = Category.create(name: "White Washed")
-tempting_terrace = Category.create(name: "Tempting Terrace")
+conferences = Category.create(name: "Conferences")
+seminars = Category.create(name: "Seminars")
+meetings = Category.create(name: "Meetings")
+team_building_events = Category.create(name: "Team Building Events")
+trade_shows = Category.create(name: "Trade Shows")
+business_dinners = Category.create(name: "Business Dinners")
+golf_events = Category.create(name: "Golf Events")
+networking_events = Category.create(name: "Networking Events")
 
 miriam = User.create(email: "miriam@codaisseurbnb.com", password: "abcd1234")
 wouter = User.create(email: "wouter@codaisseurbnb.com", password: "abcd1234")
@@ -39,7 +39,7 @@ Event.create!(
    ends_at:  Time.now + 11.days,
    active: true,
    user: miriam,
-   categories: [warm_and_cozy, a_mans_touch]
+   categories: [networking_events, meetings]
  )
 
  Event.create!(
@@ -57,7 +57,7 @@ Event.create!(
     ends_at:  Time.now + 16.days,
     active: true,
     user: wouter,
-    categories: [elegant_and_ornate, white_washed]
+    categories: [team_building_events, seminars]
   )
 
   Event.create!(
@@ -75,5 +75,5 @@ Event.create!(
      ends_at:  Time.now + 16.days,
      active: true,
      user: matt,
-     categories: [elegant_and_ornate, white_washed]
+     categories: [conferences, seminars]
    )
