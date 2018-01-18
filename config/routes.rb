@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :events, except: [:destroy]
   resources :profiles, only: [:new, :edit, :create, :update]
+  resources :photos
 
   get "about" => "pages#about"
 

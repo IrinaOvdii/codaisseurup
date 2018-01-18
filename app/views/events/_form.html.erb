@@ -1,4 +1,4 @@
-<%= form_for @event do |f| %>
+<%= form_for @event, html: { multipart: true } do |f| %>
 
   <div class="form-group">
     <label>Listing name</label>
@@ -55,6 +55,18 @@
   <div class="form-group">
     <label>Date of event (ends)</label>
     <%= f.datetime_select :ends_at, placeholder: "Event ends at:", class: "form-control" %>
+  </div>
+
+  <label>Photos</label>
+  <div class="form-group">
+    <span class="btn btn-default">
+      Upload photos
+      <%= file_field_tag "images[]", type: :file, multiple: true %>
+    </span>
+  </div>
+
+  <div>
+    <%= render 'photos/list' %>
   </div>
 
   <label>Publish this place?</label>
