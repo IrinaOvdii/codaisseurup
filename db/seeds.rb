@@ -5,7 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
 Category.destroy_all
+Photo.destroy_all
+Event.destroy_all
+Profile.destroy_all
 User.destroy_all
 
 conferences = Category.create(name: "Conferences")
@@ -22,7 +27,7 @@ wouter = User.create(email: "wouter@codaisseurbnb.com", password: "abcd1234")
 matt = User.create(email: "matt@codaisseurbnb.com", password: "abcd1234")
 
 
-Event.create!(
+event1 = Event.create!(
   name: "Evening with friends",
   description: "Benefiting Monroe Carell Jr. Children's Hospital at Vanderbilt, this casual
   event includes an auction, entertainment, and food from the Loveless Café. Chaired by Kira
@@ -42,7 +47,7 @@ Event.create!(
    categories: [networking_events, meetings]
  )
 
- Event.create!(
+ event2 = Event.create!(
    name: "Morning with friends",
    description: "It is a long established fact that a reader will be distracted by the readable
    content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
@@ -60,7 +65,7 @@ Event.create!(
     categories: [team_building_events, seminars]
   )
 
-  Event.create!(
+  event3 = Event.create!(
     name: "Day with friends",
     description: "It is a long established fact that a reader will be distracted by the readable
     content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
@@ -77,3 +82,10 @@ Event.create!(
      user: matt,
      categories: [conferences, seminars]
    )
+
+   photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/irinaovdii/image/upload/v1516275887/NetwEv_opfwi2.jpg", event: event1)
+   photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/irinaovdii/image/upload/v1516275887/GE_ifh9ki.jpg", event: event2)
+   photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/irinaovdii/image/upload/v1516275887/BD_pmky27.jpg", event: event3)
+   photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/irinaovdii/image/upload/v1516275887/TS_xkxkq6.jpg", event: event1)
+   photo5 = Photo.create!(remote_image_url: "http://res.cloudinary.com/irinaovdii/image/upload/v1516275887/TS_xkxkq6.jpg", event: event2)
+   photo6 = Photo.create!(remote_image_url: "http://res.cloudinary.com/irinaovdii/image/upload/v1516275886/TB_teprtn.jpg", event: event3)
