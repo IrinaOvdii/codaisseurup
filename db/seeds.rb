@@ -8,6 +8,7 @@
 
 
 Category.destroy_all
+Registration.destroy_all
 Photo.destroy_all
 Event.destroy_all
 Profile.destroy_all
@@ -89,3 +90,6 @@ event1 = Event.create!(
    photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/irinaovdii/image/upload/v1516275887/TS_xkxkq6.jpg", event: event1)
    photo5 = Photo.create!(remote_image_url: "http://res.cloudinary.com/irinaovdii/image/upload/v1516275887/TS_xkxkq6.jpg", event: event2)
    photo6 = Photo.create!(remote_image_url: "http://res.cloudinary.com/irinaovdii/image/upload/v1516275886/TB_teprtn.jpg", event: event3)
+
+   Registration.create!(event: event1, user: wouter, status: true, guest_count: 2)
+   Registration.create!(event: event2, user: matt, status: true, guest_count: 1)

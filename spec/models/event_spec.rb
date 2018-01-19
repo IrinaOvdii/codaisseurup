@@ -62,6 +62,20 @@ describe "association with category" do
   it { is_expected.to have_and_belong_to_many :categories }
 end
 
+describe "association with registration" do
+  let(:guest_user) { create :user, email: "guest@user.com" }
+  let(:host_user) { create :user, email: "host@user.com" }
+
+  let!(:guest_count) {}
+  let!(:event) { create :event, user: host_user }
+  let!(:registration) { create :registration, event: event, user: guest_user, guest_count: 2}
+  #guest_count: guest_user.registration.guest_count
+
+
+  it "has guests" do
+    expect(event.guests).to include(guest_user)
+  end
+end
 
 
 end
