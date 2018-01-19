@@ -1,7 +1,19 @@
+<% if current_user != @event.user %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Registartion for event</div>
+
+    <div class="panel-body">
+      <%= render 'registrations/form' %>
+    </div>
+  </div>
+<% end %>
+
+
 <div class="panel panel-primary my_panel">
   <div class="panel-heading"><%= @event.name %></div>
 
   <div class="panel-body">
+
 
     <p>Location: <%= @event.location %></p>
     <p>Host: <%= @event.user.email %></p>
