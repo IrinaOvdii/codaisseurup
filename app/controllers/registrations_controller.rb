@@ -1,5 +1,6 @@
 class RegistrationsController < ApplicationController
   before_action :load_event
+  belongs_to :user, optional: true
 
   def create
     @registration = current_user.registrations.create(registration_params.merge({
@@ -11,7 +12,7 @@ class RegistrationsController < ApplicationController
   private
 
   def registration_params
-    params.require(:registration).permit(:starts_at, :ends_at, :total)
+    params.require(:registration).permit(:status, :guest_count)
   end
 
   def load_event
